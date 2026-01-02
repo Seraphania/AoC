@@ -48,6 +48,7 @@ namespace _2025
             { 
                 try
                 {
+                    Console.Clear();
                     var inputData = reader.LoadInput($"day{input.Split('.')[0]}");
                     solutions[input].Solution.Run(inputData);
                 }
