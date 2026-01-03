@@ -7,7 +7,7 @@
 //        {
 //            // Solution Here
 
-//            Console.WriteLine("The Answer is ....");
+//            Console.WriteLine($"The Answer is ....");
 //        }
 //    }
 
@@ -18,7 +18,7 @@
 //        {
 //            // Solution Here
 
-//            Console.WriteLine("The Answer is ....");
+//            Console.WriteLine($"The Answer is ....");
 //        }
 //    }
 //}

@@ -7,23 +7,25 @@
         {
             Console.WriteLine($"{input.Count} Input Lines Parsed,");
             string[] ranges = input[0].Split(',');
-            Int64 totalInvalidIDs = 0;
-			for (int i = 0; i < ranges.Length; i++)
+            Int64 totalOfInvalidIDs = 0;
+			
+            for (int i = 0; i < ranges.Length; i++)
             {
                 string[] range = ranges[i].Split('-');
                 List<string> ids = GetIDS(range[0], range[1]);
-				// invalid:
-				// * sequence of digits repeated twice eg: 55 6464 123123
-				// * leading zeros eg: 0101
-				for (i = 0; i < ids.Count; i++)
+
+                for (int j = 0; j < ids.Count; j++)
                 {
-                    // work out how to filter....
-				}
-
-			}
-			// Find all the invalid ID's and sum them
-
-			Console.WriteLine("The Answer is ....");
+                    string id = ids[j];
+                    int mid = id.Length / 2;
+                    if (id[0..mid] == id[mid..])
+                    {
+                        totalOfInvalidIDs = totalOfInvalidIDs + Int64.Parse(id);
+                        continue;
+                    }
+                }
+            }
+            Console.WriteLine($"The Answer is {totalOfInvalidIDs}");
 
 			List<string> GetIDS(string start, string end)
             {
@@ -35,8 +37,6 @@
                 }
                 return ids;
             }
-
-
         }
     }
 
@@ -47,7 +47,7 @@
         {
             // Solution Here
 
-            Console.WriteLine("The Answer is ....");
+            Console.WriteLine($"The Answer is ....");
         }
     }
 }
