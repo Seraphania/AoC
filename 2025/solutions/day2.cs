@@ -65,13 +65,15 @@ namespace _2025
 
             void PatternSearch(string id)
             {
-                for (int section = id.Length / 2; section > 0; section--)
+                for (int chunkLength = id.Length / 2; chunkLength > 0; chunkLength--)
                 {
-                    string val = id[0..section];
-                    List<string> substrings = new List<string>();
-                    for (int startIndex = 0; startIndex < id.Length - section+1; startIndex += section)
+					if (id.Length % chunkLength != 0)
+						continue;
+					string val = id[0..chunkLength];
+					List<string> substrings = new List<string>();
+                    for (int startIndex = 0; startIndex < id.Length; startIndex += chunkLength)
                         {
-                            int end = startIndex + section;
+                            int end = startIndex + chunkLength;
                             substrings.Add(id[startIndex..end]);
                         }
                     int check = 0;
@@ -91,7 +93,7 @@ namespace _2025
                     {
                         Console.WriteLine($"\t Invalid ID: {id}");
                         totalOfInvalidIDs += Int64.Parse(id);
-                        break;
+                        return;
                     }
                 }
             }

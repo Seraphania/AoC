@@ -97,7 +97,7 @@ namespace _2025
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"\n\n'{input}' is not a valid option, please select another...\n");
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.SetCursorPosition(37, solutions.Count +3);
+                    Console.SetCursorPosition(37, solutions.Count +5);
                     input = NormaliseInput(Console.ReadLine()!);
                     Console.Clear();
                 }
