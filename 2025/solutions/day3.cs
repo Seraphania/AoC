@@ -14,7 +14,6 @@
 				int firstIndex = bank.FindIndex(c => c == first)+1;
                 int last = bank[firstIndex..].Max();
                 totalMaxJoltage += (last);
-                Console.WriteLine($"Line: {line}, First Index: {firstIndex}\tFirst: {first}\tLast: {last}\tJoltage: {totalMaxJoltage} ");
 			}
 
             Console.WriteLine($"The Answer is {totalMaxJoltage}");
@@ -26,7 +25,22 @@
     {
         public void Run(List<string> input)
         {
-            // Solution Here
+            int totalMaxJoltage = 0;
+            foreach (var line in input)
+            {
+                List<int> bank = line.Select(l => int.Parse(l.ToString())).ToList<int>();
+                List<int> jolt = new List<int>(); //maybe???
+                int first = bank[0..^12].Max(); // still true
+                for (int i = first;  i < bank.Count; i++)
+                int firstIndex = bank.FindIndex(c => c == first) + 1; ...
+                /* start at n-i(max), then get n-i(max) for everytrhing after...? 
+                 * add each 'find' to a list/string (jolt) aand at the end convert to an int to add to total.
+                 */
+
+                int last = bank[firstIndex..].Max();
+                totalMaxJoltage += (last);
+                Console.WriteLine($"Line: {line}, First Index: {firstIndex}\tFirst: {first}\tLast: {last}\tJoltage: {totalMaxJoltage} ");
+            }
 
             Console.WriteLine($"The Answer is ....");
         }
